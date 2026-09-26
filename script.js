@@ -29,8 +29,7 @@
     ];
 
     const STORAGE_KEYS = {
-        selectedProducts: "northStarSelectedProducts",
-        requestDraft: "northStarRequestDraft"
+        selectedProducts: "northStarSelectedProducts"
     };
 
     const VALID_PRODUCT_IDS = PRODUCTS.map(function (product) {
@@ -295,47 +294,6 @@
         }
     }
 
-    function restoreDraft() {
-        const form = getFormElement();
-        if (!form) {
-            return;
-        }
-        let draft = {};
-        try {
-            const raw = localStorage.getItem(STORAGE_KEYS.requestDraft);
-            const parsed = raw ? JSON.parse(raw) : {};
-            if (parsed && typeof parsed === "object") {
-                draft = parsed;
-            }
-        } catch (error) {
-            draft = {};
-        }
-        Object.keys(draft).forEach(function (fieldId) {
-            const field = document.getElementById(fieldId);
-            if (field && field.value === "" && draft[fieldId] !== "") {
-                field.value = draft[fieldId];
-            }
-        });
-    }
-
-    function saveDraft() {
-        const form = getFormElement();
-        if (!form) {
-            return;
-        }
-        const draft = {};
-        form.querySelectorAll("input, select, textarea").forEach(function (field) {
-            if (field.id) {
-                draft[field.id] = field.value;
-            }
-        });
-        try {
-            localStorage.setItem(STORAGE_KEYS.requestDraft, JSON.stringify(draft));
-        } catch (error) {
-            /* Storage unavailable: draft is only kept for this visit. */
-        }
-    }
-
     /* --------------------------------------------------------
        Contact form: validation helpers
        -------------------------------------------------------- */
@@ -511,7 +469,6 @@
             + "does not send data to a live bakery server.",
             "success"
         );
-        saveDraft();
     }
 
     function bindValidationEvents() {
@@ -535,13 +492,11 @@
             }[fieldId];
             field.addEventListener("blur", function () {
                 validator();
-                saveDraft();
             });
             field.addEventListener("input", function () {
                 if (field.classList.contains("invalid")) {
                     validator();
                 }
-                saveDraft();
             });
             field.addEventListener("change", function () {
                 if (field.id === "request-type") {
@@ -557,7 +512,6 @@
         if (!form) {
             return;
         }
-        restoreDraft();
         bindValidationEvents();
     }
 
