@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>North Star Bakery | Products</title>
+</head>
+<body>
+    <header>
+        <img src="assets/bakery-logo_c.png" alt="North Star Bakery logo">
+        <nav aria-label="Primary navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" aria-current="page">Products</a></li>
+                <li><a href="about.html">About North Star Bakery</a></li>
+                <li><a href="contact.html">Contact and Pre-Order</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Our Products</h1>
+
+        <section class="planner" aria-labelledby="planner-heading">
+            <h2 id="planner-heading">Your Pre-Order List</h2>
+            <p>Planning ahead? Add the items you are interested in below,
+            and we will fill them in on the pre-order form for you.</p>
+            <p id="planner-status" class="planner-status" role="status" aria-live="polite"></p>
+            <p id="planner-count" class="planner-count" aria-live="polite">0 items selected</p>
+            <ul id="planner-list" class="planner-list"></ul>
+            <p class="planner-actions">
+                <button type="button" id="clear-planner">Clear List</button>
+                <a class="planner-continue" href="contact.html">Continue to Pre-Order Form</a>
+            </p>
+        </section>
+
+        <div class="category-list">
+        <section>
+            <h2>Breads</h2>
+            <p>Our breads are mixed, shaped, and baked by hand in our own
+            kitchen.</p>
+            <p class="price-range">Breads: $5&ndash;$9</p>
+            <ul>
+                <li class="product-item">
+                    <h3>Sourdough Loaf</h3>
+                    <p>A crusty, slow-fermented loaf with a soft, tangy crumb.</p>
+                    <button type="button" class="add-button" data-product-id="sourdough">
+                        Add to Pre-Order List
+                    </button>
+                </li>
+                <li class="product-item">
+                    <h3>Multigrain Boule</h3>
+                    <p>A round, hearty loaf packed with oats, seeds, and whole grains.</p>
+                    <button type="button" class="add-button" data-product-id="multigrain">
+                        Add to Pre-Order List
+                    </button>
+                </li>
+                <li class="product-item">
+                    <h3>Country Baguette</h3>
+                    <p>A crisp, golden baguette baked for sandwiches and soup nights.</p>
+                    <button type="button" class="add-button" data-product-id="baguette">
+                        Add to Pre-Order List
+                    </button>
+                </li>
+            </ul>
+            <img src="assets/bakery-bread_c.png"
+                 alt="Freshly baked bread loaves from North Star Bakery">
+        </section>
+
+        <section>
+            <h2>Pastries</h2>
+            <p>Sweet and savory treats are baked in small batches for the
+            morning rush.</p>
+            <p class="price-range">Pastries: $3&ndash;$6</p>
+            <ul>
+                <li class="product-item">
+                    <h3>Butter Croissant</h3>
+                    <p>Flaky, layered, and baked golden.</p>
+                    <button type="button" class="add-button" data-product-id="croissant">
+                        Add to Pre-Order List
+                    </button>
+                </li>
+                <li class="product-item">
+                    <h3>Cinnamon Roll</h3>
+                    <p>A soft, swirled roll with cinnamon sugar and a light glaze.</p>
+                    <button type="button" class="add-button" data-product-id="cinnamon-roll">
+                        Add to Pre-Order List
+                    </button>
+                </li>
+                <li class="product-item">
+                    <h3>Blueberry Muffin</h3>
+                    <p>A tender muffin studded with whole blueberries and a sugar top.</p>
+                    <button type="button" class="add-button" data-product-id="muffin">
+                        Add to Pre-Order List
+                    </button>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Cakes</h2>
+            <p>Simple, classic cakes for everyday treats and small
+            celebrations.</p>
+            <p class="price-range">Cakes: $25&ndash;$60</p>
+            <ul>
+                <li class="product-item">
+                    <h3>Classic Layer Cake</h3>
+                    <p>A soft layer cake with a light, creamy frosting.</p>
+                    <button type="button" class="add-button" data-product-id="layer-cake">
+                        Add to Pre-Order List
+                    </button>
+                </li>
+                <li class="product-item">
+                    <h3>Birthday Cake</h3>
+                    <p>A cheerful celebration cake available for pre-order.</p>
+                    <button type="button" class="add-button" data-product-id="birthday-cake">
+                        Add to Pre-Order List
+                    </button>
+                </li>
+                <li class="product-item">
+                    <h3>Cupcakes</h3>
+                    <p>Individual frosted cakes, baked fresh and sold by the box.</p>
+                    <button type="button" class="add-button" data-product-id="cupcakes">
+                        Add to Pre-Order List
+                    </button>
+                </li>
+            </ul>
+        </section>
+        </div>
+
+        <section>
+            <h2>Our Signature Loaf</h2>
+            <figure>
+                <img src="assets/bakery-signature-loaf_c.png"
+                     alt="North Star Bakery's signature loaf">
+                <figcaption>The signature loaf, a house favorite baked fresh every morning.</figcaption>
+            </figure>
+            <p>Our signature loaf is a house favorite: a simple, well-made loaf
+            that works for toast, sandwiches, and everything in between. If you
+            would like to make sure one is waiting for you, reserve yours through
+            our contact page.</p>
+            <button type="button" class="add-button" data-product-id="signature-loaf">
+                Add to Pre-Order List
+            </button>
+            <p><a href="contact.html">Pre-order the signature loaf</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>North Star Bakery &mdash; Freshly baked, every morning.</p>
+        <p><a href="contact.html">Place a pre-order</a></p>
+    </footer>
+</body>
+</html>
